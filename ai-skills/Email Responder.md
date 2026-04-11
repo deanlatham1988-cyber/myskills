@@ -53,6 +53,18 @@ Gives a brief summary of how many emails were in the inbox, how many were filter
 
 ---
 
+## Error Handling
+
+**Outlook connector unavailable:** If the Outlook email search tool returns an authentication error or is not connected, stop and tell Dean to reconnect the Microsoft 365 connector in his Claude settings before retrying.
+
+**Individual email read failure:** If `read_resource` fails on a specific email (e.g. the email was deleted between fetch and read, or a permissions issue), skip that email, note it in the batch overview as "could not be read", and continue processing the rest.
+
+**Reply vs Reply-All:** Default to Reply unless the original email was sent to a group or distribution list. If multiple people are on the To/CC line who appear to be active participants (not just CC'd for visibility), ask Dean whether he wants Reply or Reply-All before drafting.
+
+**Batch size:** The default is 20 emails. If Dean says "go through all my emails" or similar, ask how many to process. For very large inboxes, suggest working in batches of 20 to keep the conversation manageable.
+
+---
+
 ## Dependencies
 
 - Outlook email connector (for outlook_email_search and read_resource)

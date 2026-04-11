@@ -81,17 +81,17 @@ Then draft the email. Keep it concise — most people won't read a wall of text.
 
 You have access to Asana via MCP tools. Here's how to handle this:
 
-1. First, confirm with the user which Asana project the tasks should go into. Use `asana_get_projects_for_workspace` or `asana_list_workspaces` to find what's available, then ask the user to pick.
+1. First, confirm with the user which Asana project the tasks should go into. Use `search_objects` (resource_type: "project") to find available projects, or `get_projects` to list all projects in the workspace. Ask the user to pick.
 
-2. For each action item from the overview, create a task using `asana_create_task`. Include:
+2. For each action item from the overview, create a task using `create_task_preview`. Include:
    - A clear, specific task name (imperative form: "Send proposal to X", not "Proposal")
-   - The description/notes field with context from the transcript
-   - Assignee if named (use `asana_typeahead_search` to find the user)
+   - The description field with context from the transcript
+   - Assignee if named (use `search_objects` with resource_type: "user" to find the user, or `get_users` to list workspace members)
    - Due date if mentioned
 
 3. After creating the tasks, confirm the full list back to the user so they can see what was added.
 
-4. If the user wants to adjust or add more context, do so.
+4. If the user wants to adjust or add more context, use `update_tasks` to modify tasks as needed.
 
 ### Path C: Brainstorm
 
@@ -104,6 +104,19 @@ Enter a genuine brainstorming mode — not just summarising what was said, but a
 - "If you could redo this meeting, what would you do differently?"
 
 Pick the angle most relevant to the transcript content. Offer 3–5 provocative or generative ideas to kick things off, then invite the user to dig into whichever resonates. Stay in dialogue — ask questions, build on their responses.
+
+---
+
+## Supported Input Formats
+
+This skill handles transcripts in any of the following forms:
+
+- **Pasted text** directly into the chat (most common)
+- **Uploaded .txt or .md files** exported from Otter, Granola, Fireflies, or similar tools
+- **Uploaded .docx files** containing meeting notes or transcripts
+- **Rough notes** that aren't a formal transcript but capture what was discussed
+
+If the input is messy, incomplete, or lacks speaker attribution, work with what you have and flag any ambiguity in the overview rather than guessing.
 
 ---
 

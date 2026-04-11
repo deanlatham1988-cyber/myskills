@@ -34,7 +34,7 @@ Each document follows a consistent pattern. Understanding this structure is esse
 
 ### Step 1: Read the Source Document
 
-Use pandoc to extract the .docx content as markdown. Then read the extracted markdown. If the document contains images, note their presence but do not worry about extracting them.
+Use pandoc to extract the .docx content as markdown. Before running pandoc, verify it is installed by running `which pandoc`. If pandoc is not available, fall back to using the docx skill to read the document content directly. Then read the extracted markdown. If the document contains images, note their presence but do not worry about extracting them.
 
 ### Step 2: Parse the Document into Slides
 
@@ -84,7 +84,9 @@ Global instructions always include:
 - Speaker notes content placed in presenter notes area, NOT on the visible slide surface.
 - No AI-generated images or photographs. Graphics, icons, shapes, and diagrams are fine.
 
-### Step 5: Call the Gamma API
+### Step 5: Verify Theme and Call the Gamma API
+
+Before calling Gamma, use the `get_themes` tool to confirm that the MorphTemplate theme (`hedgb3z7uh7o1ft`) still exists. If the theme ID is not found, stop and ask Dean which theme to use instead. Do not fall back to a default theme silently.
 
 Parameters:
 
@@ -120,7 +122,7 @@ Once Gamma returns the gammaUrl, share it with the user. Remind them to review t
 
 **Documents with different section markers:** Look for the pattern rather than exact marker text. The two sections per slide will always be: one for on-slide content and one for spoken narration.
 
-**Very long documents (20+ slides):** Gamma handles large presentations well with textMode: "preserve". No special handling is needed, but suggest the user review the deck card by card to confirm nothing was truncated.
+**Very long documents (20+ slides):** Gamma handles large presentations well with textMode: "preserve". No special handling is needed, but suggest the user review the deck card by card to confirm nothing was truncated. For documents exceeding 50 slides, warn Dean that generation may take longer and confirm he wants to proceed as a single deck rather than splitting into parts.
 
 ---
 
@@ -136,3 +138,4 @@ After generating the deck, verify:
 6. Was the input text built by copying verbatim from the source?
 7. Is imageOptions.source set to "noImages"?
 8. Does the MORPh logo appear on every slide?
+9. Did Gamma insert any AI-generated images despite `noImages` being set? If so, flag them for Dean to remove manually in the Gamma editor.

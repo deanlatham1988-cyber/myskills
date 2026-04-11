@@ -1,18 +1,16 @@
-*Skill that finds today's Obsidian daily note and prepends a structured daily template to the top.*
+# Daily Note Setup
 
-## What It Does
+**Skill name:** daily-note-setup
+**Description:** Finds today's Obsidian daily note and prepends a structured daily template to the top. Use this skill whenever Dean asks to set up his daily note, get Obsidian ready for today, prepare today's note, start his day in Obsidian, or open his daily note. Triggers include: "set up my daily note", "get my Obsidian ready for today", "prepare today's note", "start my day in Obsidian", "open my daily note", "daily note template", or "morning setup".
+**Install file:** daily-note-setup.skill
+
+---
+
+## Purpose
 
 Automatically locates your daily note using your Obsidian config (reads `.obsidian/daily-notes.json` so it works regardless of your folder or filename format), creates the note if it doesn't exist yet, then prepends a full daily template to the top. A hidden marker prevents it from adding the template twice if triggered more than once.
 
-## How to Trigger It
-
-Say any of the following:
-
-- "Set up my daily note"
-- "Get my Obsidian ready for today"
-- "Prepare today's note"
-- "Start my day in Obsidian"
-- "Open my daily note"
+---
 
 ## Template Sections
 
@@ -25,10 +23,11 @@ Say any of the following:
 7. Gut — comfort rating and notes
 8. Thoughts of the Day — free text
 
-## Skill File
+To modify the template contents, edit the template block in the `.skill` file directly.
 
-[[daily-note-setup.skill]]
+---
 
-## Related
+## Dependencies
 
-[[Dean Language Style]]
+- Access to `/Users/deanlatham/Desktop/Obsidian Vault` (file system)
+- `.obsidian/daily-notes.json` must exist in the vault for automatic path resolution

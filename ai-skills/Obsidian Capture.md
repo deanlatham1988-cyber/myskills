@@ -50,6 +50,18 @@ Saves the `.md` file to the correct vault path and confirms the location.
 
 ---
 
+## Error Handling
+
+**Vault path not found:** If `/Users/deanlatham/Desktop/Obsidian Vault` does not exist or is not accessible, ask Dean for the current vault path before proceeding. Do not create a new vault directory.
+
+**Content type detection:** If the content Dean provides does not clearly fit Academic/Research, Verbatim/Technical, or Business categories, default to a minimal structure: a title and the content as flowing prose under a single `## Notes` heading. Ask Dean if he wants a different structure rather than guessing.
+
+**Related note matching:** When scanning for related existing notes (Step 4), match on: note titles containing shared keywords, tags that overlap, and notes in the same folder. Present matches with the folder path so Dean can judge relevance. If no matches are found, skip the linking step rather than forcing weak suggestions.
+
+**File name conflicts:** If a note with the same filename already exists at the target path, ask Dean whether to append to the existing note or create a new note with a disambiguated name. Never overwrite silently.
+
+---
+
 ## Dependencies
 
 - Access to `/Users/deanlatham/Desktop/Obsidian Vault` (file system)
