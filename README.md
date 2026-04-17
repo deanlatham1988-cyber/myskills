@@ -30,6 +30,7 @@ One-command and specialist skills for the MORPh event marketing pipeline — 8-w
 | [Daily Note Setup](claude-skills/Daily%20Note%20Setup.md) | Prepends a structured daily template to the current Obsidian daily note |
 | [Meeting Transcript Analyzer](claude-skills/Otter%20AI%20Skill.md) | Turns meeting transcripts into structured overviews with follow-up email, Asana task, and brainstorm options |
 | [Obsidian Capture](claude-skills/Obsidian%20Capture.md) | Saves information to the Obsidian vault with type-aware formatting and related note linking |
+| [Scope](claude-skills/Scope.md) | Short interview that forces articulation of what/why/who/success before building — branches for automation, content, document, process, decision, or code |
 | [Session Handover](claude-skills/Session%20Handover.md) | Generates a continuity brief so the next Claude chat can resume where this one ended |
 | [Toolkit Gamma](claude-skills/Toolkit%20Gamma.md) | Converts .docx training documents into Gamma slide decks with exact wording preservation |
 | [Ultraplan](claude-skills/Ultraplan.md) | Deep multi-phase implementation planning with parallel agent exploration and iterative user interviews |
